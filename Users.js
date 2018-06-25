@@ -34,6 +34,30 @@ const filterConfig = [
   },
 ];
 
+const nsParams = 'users';
+
+// or
+
+/*
+const nsParams = {
+  query: 'users.query',
+  filters: 'users.filters',
+  sort: 'users.sort',
+  qindex: 'users.qindex',
+};
+*/
+
+// or
+
+/*
+const nsParams = {
+  query: "q",
+  filters: "f",
+  sort: "s",
+  qindex: "i",
+};
+*/
+
 class Users extends React.Component {
   static manifest = Object.freeze({
     initializedFilterConfig: { initialValue: false },
@@ -60,6 +84,7 @@ class Users extends React.Component {
             },
             filterConfig,
             2,
+            nsParams
           ),
         },
         staticFallback: { params: {} },
@@ -217,6 +242,7 @@ class Users extends React.Component {
       parentResources={this.props.resources}
       parentMutator={this.props.mutator}
       showSingleResult={showSingleResult}
+      nsParams={nsParams}
       columnMapping={{
         status: intl.formatMessage({ id: 'ui-users.active' }),
         name: intl.formatMessage({ id: 'ui-users.information.name' }),
