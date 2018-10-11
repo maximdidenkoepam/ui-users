@@ -73,6 +73,16 @@ class EditExtendedInfo extends React.Component {
         </Row>
         {!initialValues.id &&
           <Row>
+            <Col xs={12} md={3}>
+              <Field
+                label={`${this.props.stripes.intl.formatMessage({ id: 'ui-users.information.username' })}`}
+                name="username"
+                id="adduser_username"
+                component={TextField}
+                fullWidth
+                validStylesEnabled
+              />
+            </Col>
             <Col xs={4}>
               <Field
                 component={TextField}
